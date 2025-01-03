@@ -10,7 +10,7 @@ def sniff_packet():
     while True:
         raw_data, addr= sock.recvfrom(65535)
         eth_header = raw_data[:14]
-        eth_data = struct.unpack('!6s6sH')
+        eth_data = struct.unpack('!6s6sH',eth_header)
         
         payload= raw_data[14:]
         
